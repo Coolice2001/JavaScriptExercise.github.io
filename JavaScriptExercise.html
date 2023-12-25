@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+
+<body>
+    <img src="off.png" alt="灯" id="light">
+
+    <br><br>
+
+    <input type="button" value="点亮" onclick="on()">
+    <input type="button" value="熄灭" onclick="off()">
+
+    <br><br>
+
+    <input type="text" id="name" value="COOLICE" onfocus="lower()" onblur="upper()">
+
+    <br><br>
+
+    <input type="checkbox" name="hobby" id=""> 电影
+    <input type="checkbox" name="hobby" id=""> 旅游
+    <input type="checkbox" name="hobby" id=""> 游戏
+
+    <br>
+
+    <input type="button" value="全选" onclick="checAll()">
+    <input type="button" value="全不选" onclick="reverse()">
+</body>
+<script>
+    //1.设置开关灯的方法 --onclick 点击事件
+    function on() {
+        //获取img元素对象
+        var img = document.getElementById("light");
+        //设置属性
+        img.src = "on.png";
+    }
+
+    function off() {
+        //获取img元素对象
+        var img = document.getElementById("light");
+        //设置属性
+        img.src = "off.png";
+    }
+
+    //2.输入框聚焦，小写；离焦，大写；  --onfocus="" 聚焦事件    --onblur="" 离焦事件 
+    function lower() {
+        //获取输入框元素对象
+        var input = document.getElementById("name");
+        //转小写
+        input.value = input.value.toLowerCase();
+    }
+
+    function upper() {
+        //获取输入框元素对象
+        var input = document.getElementById("name");
+        //转大写
+        input.value = input.value.toUpperCase();
+    }
+
+    //3.
+    function checAll() {
+        //获取所有复选框元素对象
+        var hobbys = document.getElementsByName("hobby");//以数组的形式存贮
+        //设置选中状态
+        for (let i = 0; i < hobbys.length; i++) {
+            const element = hobbys[i];
+            element.checked = true;
+        }
+    }
+
+    function reverse() {
+        //获取所有复选框元素对象
+        var hobbys = document.getElementsByName("hobby");//以数组的形式存贮
+        //设置选中状态
+        for (let i = 0; i < hobbys.length; i++) {
+            const element = hobbys[i];
+            element.checked = false;
+        }
+    }
+</script>
+
+</html>
